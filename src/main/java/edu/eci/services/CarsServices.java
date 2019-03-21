@@ -1,0 +1,59 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.eci.services;
+import edu.eci.models.Car;
+import edu.eci.models.User;
+import edu.eci.persistences.repositories.ICarRepository;
+import edu.eci.persistences.repositories.IUserRepository;
+import edu.eci.services.contracts.ICarService;
+import edu.eci.services.contracts.IUserServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.UUID;
+
+@Component
+/**
+ *
+ * @author 2112107
+ */
+public class CarsServices implements ICarService{
+    @Autowired
+    @Qualifier("CarMemoryRepository")
+     private ICarRepository CarRepository;
+
+    @Override
+    public List<Car> list() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Car create(Car user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Car get(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
+
+    @Override
+    public void update(Car user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
+    
+}
