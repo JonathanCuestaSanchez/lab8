@@ -1,0 +1,7 @@
+Prepare the app:
+*What the application do?
+The application it's the same that getting stared heroku page.
+*Describe the REST services exposed by the application.
+the services just allow us to get, create, update and delete users and cars. 
+*For what purpose is the Procfile plaintext file? 
+the objetive of Procfile, it's to select the executable jar.
