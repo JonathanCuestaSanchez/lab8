@@ -24,7 +24,7 @@ public class CarMemoryRepository implements ICarRepository{
 
     public static List<Car> carContainer;
     private static List<Car> carsContainer;
-     public static List<Car> getContainer(){
+    public static List<Car> getContainer(){
          if (CarMemoryRepository.carContainer == null){
              CarMemoryRepository.carContainer= new ArrayList<>();
          }
@@ -32,7 +32,7 @@ public class CarMemoryRepository implements ICarRepository{
      }
     @Override
     public List<Car> findAll() {
-       return CarMemoryRepository.carContainer; 
+       return CarMemoryRepository.getContainer(); 
        
     }
 
