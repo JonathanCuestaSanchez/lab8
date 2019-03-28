@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package edu.eci.services;
+
 import edu.eci.models.Car;
 import edu.eci.models.User;
 import edu.eci.persistences.repositories.ICarRepository;
@@ -22,38 +23,42 @@ import java.util.UUID;
  *
  * @author 2112107
  */
-public class CarsServices implements ICarService{
+public class CarsServices implements ICarService {
+
     @Autowired
     @Qualifier("CarMemoryRepository")
-     private ICarRepository CarRepository;
+    private ICarRepository CarRepository;
 
     @Override
     public List<Car> list() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return CarRepository.findAll();
     }
 
     @Override
-    public Car create(Car user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Car create(Car car) {
+        if (null == car.getLicencePlate()) {
+            throw new RuntimeException("Id invalid");
+        } else if (CarRepository.find(car.getLicencePlate()) != null) {
+            throw new RuntimeException("The car already exists");
+        } else {
+            CarRepository.save(car);
+        }
+        return car;
     }
 
     @Override
     public Car get(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return CarRepository.getCarByUserName(id);
     }
 
-   
-
     @Override
-    public void update(Car user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Car car) {
+        CarRepository.update(car);
     }
 
     @Override
     public void delete(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        CarRepository.delete(CarRepository.find(id));
     }
 
-   
-    
 }
