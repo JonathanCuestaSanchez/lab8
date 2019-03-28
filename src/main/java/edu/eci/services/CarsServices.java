@@ -47,8 +47,8 @@ public class CarsServices implements ICarService {
     }
 
     @Override
-    public Car get(String id) {
-        return CarRepository.getCarByUserName(id);
+    public Car get(String  id) {
+        return CarRepository.getCarByLicence(id);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class CarsServices implements ICarService {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(String  id) {
         CarRepository.delete(CarRepository.find(id));
     }
 

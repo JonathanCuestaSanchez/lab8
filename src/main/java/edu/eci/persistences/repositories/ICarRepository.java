@@ -7,5 +7,5 @@ import java.util.UUID;
 
 @Repository
 public interface ICarRepository extends DAO<Car, String> {
-    Car getCarByUserName(String licence);
+    Car getCarByLicence(String licence);
 }

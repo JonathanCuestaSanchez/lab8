@@ -1,5 +1,6 @@
 package edu.eci.models;
 
+
 import java.io.Serializable;
 
 public class Car implements Serializable{

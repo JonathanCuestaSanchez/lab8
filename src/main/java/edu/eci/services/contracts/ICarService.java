@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 public interface ICarService {
     List<Car> list();
     Car create(Car user);
-    Car get(String id);
+    Car get(String  id);
     void update(Car user) ;
-    void delete(String id);
+    void delete(String  id);
 }

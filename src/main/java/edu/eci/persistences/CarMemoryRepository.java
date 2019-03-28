@@ -10,6 +10,7 @@ import edu.eci.persistences.repositories.ICarRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import static java.util.stream.Collectors.toList;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -37,7 +38,7 @@ public class CarMemoryRepository implements ICarRepository{
     }
 
     @Override
-    public Car find(String id) {
+    public Car find(String  id) {
         Optional<Car> answer = CarMemoryRepository.getContainer()
                 .stream()
                 .filter(u -> id.equals(u.getLicencePlate()))
@@ -46,7 +47,7 @@ public class CarMemoryRepository implements ICarRepository{
     }
 
     @Override
-    public String save(Car entity) {
+    public String  save(Car entity) {
        CarMemoryRepository.getContainer().add(entity);
 		return entity.getLicencePlate();
     }
@@ -76,12 +77,14 @@ public class CarMemoryRepository implements ICarRepository{
     }
 
     @Override
-    public Car getCarByUserName(String licence) {
+    public Car getCarByLicence(String licence) {
         return CarMemoryRepository.getContainer()
                 .stream()
                 .filter(u -> licence.equals(u.getLicencePlate()))
                 .findFirst()
                 .get();
     }
+
+    
     
 }
